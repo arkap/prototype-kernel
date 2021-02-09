@@ -81,11 +81,11 @@ each insns is 8 bytes (see `struct bpf_insn`_) (shell trick ``echo
 $((0x1b8)) insns=$((0x1b8 / 8))``). Do notice this size is not the
 JIT'ed program size.
 
-The loader code samples/bpf/bpf_load.c parse this elf file, extract needed
-program sections, uses the maps section and relocation section (here
-.relxdp_prog ) to remap the BPF_PSEUDO_MAP_FD instruction to
-point to the correct map (which gets created during parsing of the
-maps section, via standard bpf-syscall bpf_create_map).
+The loader code samples/bpf/bpf_load.c parses this elf file, extracts
+needed program sections, and uses the maps section and relocation
+section (here .relxdp_prog) to remap the BPF_PSEUDO_MAP_FD instruction
+to point to the correct map (which gets created during parsing of the
+maps section, via standard bpf-syscall `bpf_create_map`).
 
 .. _struct bpf_insn: http://lxr.free-electrons.com/ident?i=bpf_insn
 
